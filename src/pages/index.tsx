@@ -5,6 +5,7 @@ import { initializeApollo, addApolloState } from '@src/graphql/apolloClient'
 import { GET_ALL_TOURNAMENTS_QUERY } from '@src/graphql/queries'
 import { GET_ALL_TOURNAMENTS_VARIABLES } from '@src/config/constants'
 import { useGetAllTournamentsQuery } from '@src/generated/graphql'
+import { Layout } from '@src/components'
 
 const Home: NextPage = () => {
   const { loading, error, data } = useGetAllTournamentsQuery({
@@ -20,9 +21,11 @@ const Home: NextPage = () => {
         <title>Community Gaming</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <main className="container">
-        <h1 className="text-center text-2xl font-bold capitalize">Upcoming Tournaments</h1>
-      </main>
+      <Layout>
+        <main className="container">
+          <h1 className="text-center text-2xl font-bold capitalize">Upcoming Tournaments</h1>
+        </main>
+      </Layout>
     </>
   )
 }
