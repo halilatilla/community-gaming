@@ -1,8 +1,6 @@
 import { gql } from '@apollo/client'
 
-const POSTS_PER_PAGE = 10
-
-export const GET_POSTS = gql`
+export const GET_ALL_TOURNAMENTS_QUERY = gql`
   query getAllTournaments($count: Int!, $offset: Int!) {
     listedTournaments(count: $count, offset: $offset) {
       id
