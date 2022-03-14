@@ -4,19 +4,30 @@ module.exports = {
     extend: {
       colors: {
         primary: '#1fd2f1',
+        secondary: '#6c757d',
         black: '#0e1018',
+        darkGrey: '#191e2e',
+        danger: '#b55264',
       },
-    },
-    container: {
-      padding: '2rem',
-      center: true,
-    },
-    screens: {
-      sm: '640px',
-      md: '768px',
-      lg: '901px',
-      xl: '1200px',
-      '2xl': '1200px',
+      borderColor: {
+        DEFAULT: '#313c60',
+      },
+      container: {
+        padding: {
+          DEFAULT: '1rem',
+          sm: '2rem',
+          lg: '4rem',
+          xl: '5rem',
+          '2xl': '6rem',
+        },
+        center: true,
+      },
+      screens: {
+        md: '768px',
+        lg: '901px',
+        xl: '1200px',
+        '2xl': '1200px',
+      },
     },
   },
   plugins: [require('@tailwindcss/forms'), require('@tailwindcss/line-clamp')],

@@ -5,15 +5,15 @@
 - [ ] You must use Apollo Client hooks when sending a query or mutation.
 - [ ] All query responses must be cached both apolloClient context and localStorage.
 - [ ] You must use Context API as state management.
-- [ ] You must use a css pre-processor like "sass" or "less" or any other css pre-processors.
-- [ ] You must build case in a responsive layout. You can prefer to use Bootstrap kind CSS layouts. Or you can use directly @media queries.
-- [ ] You can add your own design. You do not have to do it as it seems.
-- [ ] Every component needs to be a functional component which must be maximum 300 lines.
-- [ ] You must use react hooks.
+- [x] You must use a css pre-processor like "sass" or "less" or any other css pre-processors.
+- [x] You must build case in a responsive layout. You can prefer to use Bootstrap kind CSS layouts. Or you can use directly @media queries.
+- [x] You can add your own design. You do not have to do it as it seems.
+- [x] Every component needs to be a functional component which must be maximum 300 lines.
+- [x] You must use react hooks.
 - [ ] Every function which you type need a "what is it for" description to understand it.
-- [ ] You must use ES& features (like Arrow functions, object destructuring, template literals etc.).
+- [x] You must use ES& features (like Arrow functions, object destructuring, template literals etc.).
 - [ ] There must be only 1 main menu component for both desktop and mobile views.
-- [ ] Design can be different from draft
+- [x] Design can be different from draft
 
 ## Delivering Criterias
 
@@ -27,8 +27,8 @@ When i open the page it needs to show listing page which includes all tournament
 
 ### Menu & Header
 
-- [ ] Header must include Community Gaming's logo on left side and menu on right side.
-- [ ] Menu must includes "Tournaments Listing", "Add New", "Sign In" items. (Sign-in will be non-functional it's gonna be just showing)
+- [x] Header must include Community Gaming's logo on left side and menu on right side.
+- [x] Menu must includes "Tournaments Listing", "Add New", "Sign In" items. (Sign-in will be non-functional it's gonna be just showing)
 
 ### State
 
@@ -67,7 +67,7 @@ When i open the page it needs to show listing page which includes all tournament
 
 ### View Breakpoints
 
-- [ ] 1200px, 901px, 768px will be breakpoints of view.
+- [x] 1200px, 901px, 768px will be breakpoints of view.
 
 ### Queries which you need to use
 **graphql endpoint**
