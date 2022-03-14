@@ -5,3 +5,18 @@ export const GET_ALL_TOURNAMENTS_VARIABLES = {
   count: 6 as const,
   offset: 0 as const,
 }
+
+export const MENU_ITEMS = [
+  {
+    href: '/',
+    text: 'tournaments listing',
+  },
+  {
+    href: '/add-new',
+    text: 'add new',
+  },
+  {
+    href: '/#',
+    text: 'sing in',
+  },
+]
