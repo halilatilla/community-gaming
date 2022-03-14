@@ -1,7 +1,12 @@
 module.exports = {
   content: ['./pages/**/*.{js,jsx,ts,tsx}', './src/**/*.{js,jsx,ts,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: '#1fd2f1',
+        black: '#0e1018',
+      },
+    },
     container: {
       padding: '2rem',
       center: true,

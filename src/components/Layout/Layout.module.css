@@ -1,0 +1,3 @@
+.layout {
+  @apply grid min-h-screen grid-rows-[max_content_1fr] bg-black;
+}
