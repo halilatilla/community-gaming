@@ -1,0 +1,1 @@
+query getAllTournaments($count: Int!, $offset: Int!){ listedTournaments(count: $count, offset: $offset) { id name deadline waitlistParticipantsCount owner { id username avatar } } 
