@@ -1,14 +1,16 @@
-import React from 'react'
-import { AppProps } from 'next/app'
+import { AppContext, AppInitialProps } from 'next/app'
+import { ApolloProvider } from '@apollo/client'
 
-import NextApolloProvider from '@src/graphql/apollo'
+import { useApollo } from '@src/lib'
 import '@src/styles/tailwind.css'
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps }: AppContext & AppInitialProps) {
+  const apolloClient = useApollo(pageProps)
+
   return (
-    <NextApolloProvider>
+    <ApolloProvider client={apolloClient}>
       <Component {...pageProps} />
-    </NextApolloProvider>
+    </ApolloProvider>
   )
 }
 
