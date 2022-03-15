@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import { NextPage } from 'next'
 import Head from 'next/head'
 
@@ -17,13 +16,8 @@ const Home: NextPage = () => {
     },
   })
 
-  const [tournaments, setTournaments] = useLocalStorage<any[]>('tournaments', data?.listedTournaments || [])
-
-  useEffect(() => {
-    if (data) {
-      setTournaments(data.listedTournaments)
-    }
-  }, [data])
+  //set initial data to localStorage
+  useLocalStorage<any>('tournaments', data?.listedTournaments)
 
   return (
     <>
@@ -36,7 +30,7 @@ const Home: NextPage = () => {
           <h1 className="text-center text-4xl font-bold capitalize">Tournaments</h1>
           {loading && 'Loading...'}
           {error && 'Something went wrong...'}
-          {data && <TournamentList tournaments={tournaments} />}
+          {data && <TournamentList />}
         </main>
       </Layout>
     </>

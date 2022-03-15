@@ -6,36 +6,51 @@ import { format } from 'date-fns'
 
 import { BLUR_DATA_URL } from '@src/config/constants'
 import { Button, Modal } from '@src/components'
-import { useDeleteTournamentMutation } from '@src/generated/graphql'
+import { useTournamentsContext } from '@src/store'
 import ITournamentCard from './TournamentCard.types'
 
 const TournamentCard: FC<ITournamentCard> = ({ tournament }) => {
   const [isDeleteModal, setIsDeleteModal] = useState(false)
-  const [vote, setVote] = useState(0)
-  const [deleteTournament, { data, loading, error }] = useDeleteTournamentMutation()
+  const { tournaments, setTournaments } = useTournamentsContext()
 
   const handleDeleteConfirm = () => {
-    /*  deleteTournament({
-      variables: {
-        id: tournament.id,
-      },
-    }) */
+    //find tournament into tournaments array and remove it
+    const newTournaments = tournaments?.filter((t) => t.id !== tournament.id)
+    setTournaments(newTournaments)
     setIsDeleteModal(false)
-    error ? toast.error(error) : toast.success(`Tournament deleted successfully`)
+    toast.success(`Tournament deleted successfully`)
   }
 
   const handleDeleteClose = () => {
     setIsDeleteModal(false)
   }
 
-  const handleUpVote = () => {
-    setVote(vote + 1)
+  const handleUpVote = (id: string) => {
+    //add votes to tournament into the tournament list
+    // @ts-ignore
+    setTournaments((prevTournaments) => {
+      const updatedTournaments = prevTournaments?.map((tournament: { id: string; vote: any }) => {
+        if (id === tournament.id) {
+          return { ...tournament, vote: (tournament.vote ?? 0) + 1 }
+        }
+        return tournament
+      })
+      return updatedTournaments
+    })
   }
 
-  const handleDownVote = () => {
-    if (vote > 0) {
-      setVote(vote - 1)
-    }
+  const handleDownVote = (id: string) => {
+    //remove votes to tournament into the tournament list
+    // @ts-ignore
+    setTournaments((prevTournaments) => {
+      const updatedTournaments = prevTournaments?.map((tournament: { id: string; vote: any }) => {
+        if (id === tournament.id) {
+          return { ...tournament, vote: (tournament.vote ?? 0) - 1 }
+        }
+        return tournament
+      })
+      return updatedTournaments
+    })
   }
 
   return (
@@ -66,7 +81,7 @@ const TournamentCard: FC<ITournamentCard> = ({ tournament }) => {
           </Button>
 
           <div className="flex-center absolute top-4 left-4 h-14 w-14 flex-col rounded-lg bg-black capitalize">
-            <span>{vote}</span>
+            <span>{tournament?.vote ?? 0}</span>
             <span>vote</span>
           </div>
         </div>
@@ -78,8 +93,12 @@ const TournamentCard: FC<ITournamentCard> = ({ tournament }) => {
           </div>
           <div className="flex justify-between">
             <div className="space-x-2">
-              <Button label="up" onClick={handleUpVote} />
-              <Button label="down" onClick={handleDownVote} />
+              <Button label="up" onClick={() => handleUpVote(tournament.id)} />
+              <Button
+                label="down"
+                onClick={() => handleDownVote(tournament.id)}
+                disabled={tournament.vote === 0 || !tournament.vote}
+              />
             </div>
             <Button label="update" />
           </div>
