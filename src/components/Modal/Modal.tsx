@@ -5,12 +5,12 @@ import Dialog from 'rc-dialog'
 import { Button } from '@src/components'
 import IModal from './Modal.types'
 
-const Modal: FC<IModal> = ({ className, onClose, confirm, isVisible, header, content }) => {
+const Modal: FC<IModal> = ({ className, cancel, confirm, isVisible, header, content }) => {
   return (
     <Dialog
       animation="zoom"
       maskAnimation="fade"
-      onClose={onClose}
+      onClose={cancel.onClose}
       visible={isVisible}
       className={classnames(className)}
       closeIcon={<span />}
@@ -21,7 +21,7 @@ const Modal: FC<IModal> = ({ className, onClose, confirm, isVisible, header, con
       </div>
 
       <div className="flex justify-end space-x-4">
-        <Button label="cancel" onClick={onClose} />
+        <Button label={cancel.label} onClick={cancel.onClose} />
         <Button label={confirm.label} className="text-danger" onClick={confirm.onConfirm} />
       </div>
     </Dialog>

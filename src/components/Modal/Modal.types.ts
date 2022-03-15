@@ -1,9 +1,12 @@
 export default interface IModal {
   className?: string
-  onClose: () => void
   confirm: {
     label: string
     onConfirm: () => void
+  }
+  cancel: {
+    label: string
+    onClose: () => void
   }
   isVisible: boolean
   header?: string
