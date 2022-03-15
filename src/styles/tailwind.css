@@ -1,5 +1,7 @@
 /* 3rd party */
 @import '../../node_modules/rc-dialog/assets/index.css';
+@import '../../node_modules/nprogress/nprogress.css';
+@import '../../node_modules/react-toastify/dist/ReactToastify.css';
 
 /* components */
 @import './components/modal.css';

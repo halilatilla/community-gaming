@@ -3,5 +3,5 @@
 }
 
 .rc-dialog-body {
-  @apply space-y-9;
+  @apply flex h-full min-h-[200px] flex-col justify-between;
 }

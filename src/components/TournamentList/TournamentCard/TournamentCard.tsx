@@ -1,6 +1,7 @@
 import { FC, useState } from 'react'
 import Image from 'next/image'
 import { HiTrash } from 'react-icons/hi'
+import { toast } from 'react-toastify'
 
 import { BLUR_DATA_URL } from '@src/config/constants'
 import { Button, Modal } from '@src/components'
@@ -8,12 +9,22 @@ import ITournamentCard from './TournamentCard.types'
 
 const TournamentCard: FC<ITournamentCard> = ({ tournament }) => {
   const [isDeleteModal, setIsDeleteModal] = useState(false)
+
+  const onHandleDelete = () => {
+    setIsDeleteModal(false)
+    toast.success(`Tournament deleted successfully`, { position: 'bottom-right' })
+  }
+
+  const onHandleClose = () => {
+    setIsDeleteModal(false)
+  }
+
   return (
     <>
       <Modal
-        onClose={() => setIsDeleteModal(false)}
         isVisible={isDeleteModal}
-        onConfirm={() => {}}
+        confirm={{ label: 'delete', onConfirm: onHandleDelete }}
+        cancel={{ label: 'cancel', onClose: onHandleClose }}
         content={tournament.name}
         header="are you sure about to delete this tournament?"
       />
