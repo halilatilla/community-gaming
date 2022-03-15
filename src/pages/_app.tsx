@@ -12,7 +12,7 @@ function MyApp({ Component, pageProps }: AppContext & AppInitialProps) {
   return (
     <>
       <NProgress />
-      <ToastContainer />
+      <ToastContainer position="bottom-right" />
       <ApolloProvider client={apolloClient}>
         <Component {...pageProps} />
       </ApolloProvider>

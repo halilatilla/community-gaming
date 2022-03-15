@@ -6,15 +6,22 @@ import { format } from 'date-fns'
 
 import { BLUR_DATA_URL } from '@src/config/constants'
 import { Button, Modal } from '@src/components'
+import { useDeleteTournamentMutation } from '@src/generated/graphql'
 import ITournamentCard from './TournamentCard.types'
 
 const TournamentCard: FC<ITournamentCard> = ({ tournament }) => {
   const [isDeleteModal, setIsDeleteModal] = useState(false)
   const [vote, setVote] = useState(0)
+  const [deleteTournament, { data, loading, error }] = useDeleteTournamentMutation()
 
   const handleDeleteConfirm = () => {
+    /*  deleteTournament({
+      variables: {
+        id: tournament.id,
+      },
+    }) */
     setIsDeleteModal(false)
-    toast.success(`Tournament deleted successfully`, { position: 'bottom-right' })
+    error ? toast.error(error) : toast.success(`Tournament deleted successfully`)
   }
 
   const handleDeleteClose = () => {
