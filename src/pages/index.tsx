@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { NextPage } from 'next'
 import Head from 'next/head'
 
@@ -17,7 +18,13 @@ const Home: NextPage = () => {
   })
 
   //set initial data to localStorage
-  useLocalStorage<any>('tournaments', data?.listedTournaments)
+  const [_, setLocalStorage] = useLocalStorage<any>('tournaments', data?.listedTournaments)
+
+  useEffect(() => {
+    if (data) {
+      setLocalStorage(data.listedTournaments)
+    }
+  }, [data])
 
   return (
     <>
