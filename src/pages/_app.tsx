@@ -4,6 +4,7 @@ import { ToastContainer } from 'react-toastify'
 
 import { NProgress } from '@src/hooks/index'
 import { useApollo } from '@src/lib'
+import { TournamentsProvider } from '@src/store'
 import '@src/styles/tailwind.css'
 
 function MyApp({ Component, pageProps }: AppContext & AppInitialProps) {
@@ -12,9 +13,11 @@ function MyApp({ Component, pageProps }: AppContext & AppInitialProps) {
   return (
     <>
       <NProgress />
-      <ToastContainer />
+      <ToastContainer position="bottom-right" />
       <ApolloProvider client={apolloClient}>
-        <Component {...pageProps} />
+        <TournamentsProvider>
+          <Component {...pageProps} />
+        </TournamentsProvider>
       </ApolloProvider>
     </>
   )

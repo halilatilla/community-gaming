@@ -17,11 +17,12 @@ const Home: NextPage = () => {
     },
   })
 
-  const [tournaments, setTournaments] = useLocalStorage<any[]>('tournaments', data?.listedTournaments || [])
+  //set initial data to localStorage
+  const [_, setLocalStorage] = useLocalStorage<any>('tournaments', data?.listedTournaments)
 
   useEffect(() => {
     if (data) {
-      setTournaments(data.listedTournaments)
+      setLocalStorage(data.listedTournaments)
     }
   }, [data])
 
@@ -36,7 +37,7 @@ const Home: NextPage = () => {
           <h1 className="text-center text-4xl font-bold capitalize">Tournaments</h1>
           {loading && 'Loading...'}
           {error && 'Something went wrong...'}
-          {data && <TournamentList tournaments={tournaments} />}
+          {data && <TournamentList />}
         </main>
       </Layout>
     </>

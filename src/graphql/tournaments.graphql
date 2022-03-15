@@ -11,3 +11,9 @@ query getAllTournaments($count: Int!, $offset: Int!) {
     }
   }
 }
+
+mutation deleteTournament($id: String!) {
+  deleteTournament(id: $id) {
+    id
+  }
+}
