@@ -1,3 +1,9 @@
+/* 3rd party */
+@import '../../node_modules/rc-dialog/assets/index.css';
+
+/* components */
+@import './components/modal.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
