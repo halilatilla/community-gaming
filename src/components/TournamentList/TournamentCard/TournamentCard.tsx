@@ -2,6 +2,7 @@ import { FC, useState } from 'react'
 import Image from 'next/image'
 import { HiTrash } from 'react-icons/hi'
 import { toast } from 'react-toastify'
+import { format } from 'date-fns'
 
 import { BLUR_DATA_URL } from '@src/config/constants'
 import { Button, Modal } from '@src/components'
@@ -9,22 +10,33 @@ import ITournamentCard from './TournamentCard.types'
 
 const TournamentCard: FC<ITournamentCard> = ({ tournament }) => {
   const [isDeleteModal, setIsDeleteModal] = useState(false)
+  const [vote, setVote] = useState(0)
 
-  const onHandleDelete = () => {
+  const handleDeleteConfirm = () => {
     setIsDeleteModal(false)
     toast.success(`Tournament deleted successfully`, { position: 'bottom-right' })
   }
 
-  const onHandleClose = () => {
+  const handleDeleteClose = () => {
     setIsDeleteModal(false)
+  }
+
+  const handleUpVote = () => {
+    setVote(vote + 1)
+  }
+
+  const handleDownVote = () => {
+    if (vote > 0) {
+      setVote(vote - 1)
+    }
   }
 
   return (
     <>
       <Modal
         isVisible={isDeleteModal}
-        confirm={{ label: 'delete', onConfirm: onHandleDelete }}
-        cancel={{ label: 'cancel', onClose: onHandleClose }}
+        confirm={{ label: 'delete', onConfirm: handleDeleteConfirm }}
+        cancel={{ label: 'cancel', onClose: handleDeleteClose }}
         content={tournament.name}
         header="are you sure about to delete this tournament?"
       />
@@ -47,7 +59,7 @@ const TournamentCard: FC<ITournamentCard> = ({ tournament }) => {
           </Button>
 
           <div className="flex-center absolute top-4 left-4 h-14 w-14 flex-col rounded-lg bg-black capitalize">
-            <span>0</span>
+            <span>{vote}</span>
             <span>vote</span>
           </div>
         </div>
@@ -55,12 +67,12 @@ const TournamentCard: FC<ITournamentCard> = ({ tournament }) => {
           <div className="space-y-2 overflow-hidden bg-black p-2 capitalize">
             <p className="font-bold line-clamp-1">{tournament.name}</p>
             <p className="font-bold line-clamp-1">owner: {tournament.owner.username}</p>
-            <p>{tournament.deadline}</p>
+            <p>{format(new Date(tournament.deadline), 'MM/dd/yyyy KK:mm')}</p>
           </div>
           <div className="flex justify-between">
             <div className="space-x-2">
-              <Button label="up" />
-              <Button label="down" />
+              <Button label="up" onClick={handleUpVote} />
+              <Button label="down" onClick={handleDownVote} />
             </div>
             <Button label="update" />
           </div>
