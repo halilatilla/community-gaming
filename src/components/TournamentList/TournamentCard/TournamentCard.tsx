@@ -13,7 +13,7 @@ const TournamentCard: FC<ITournamentCard> = ({ tournament }) => {
       <Modal
         onClose={() => setIsDeleteModal(false)}
         isVisible={isDeleteModal}
-        onConfirm={() => {}}
+        confirm={{ label: 'delete', onConfirm: () => {} }}
         content={tournament.name}
         header="are you sure about to delete this tournament?"
       />
