@@ -1,0 +1,7 @@
+.rc-dialog-content {
+  @apply overflow-hidden bg-black;
+}
+
+.rc-dialog-body {
+  @apply space-y-9;
+}
