@@ -3,7 +3,7 @@ import { ApolloProvider } from '@apollo/client'
 import { ToastContainer } from 'react-toastify'
 
 import { NProgress } from '@src/hooks/index'
-import { useApollo } from '@src/lib'
+import { useApollo } from '@src/graphql/apolloClient'
 import { TournamentsProvider } from '@src/store'
 import '@src/styles/tailwind.css'
 
