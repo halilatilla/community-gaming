@@ -11,11 +11,6 @@ import ITournamentList from './TournamentList.types'
 const TournamentList: FC<ITournamentList> = ({ className, page, sortBy, ...rest }) => {
   const { tournaments } = useTournamentsContext()
 
-  const spring = {
-    type: 'spring',
-    damping: 20,
-    stiffness: 200,
-  }
   return (
     <ul className={classnames('grid gap-8 md:grid-cols-2 xl:grid-cols-3', className)} {...rest}>
       {getPaginatedList(getSortedList(tournaments || [], sortBy), page, PAGINATION_OPTIONS.pageSize)?.map(
