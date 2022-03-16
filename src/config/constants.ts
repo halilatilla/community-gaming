@@ -25,3 +25,13 @@ export const PAGINATION_OPTIONS = {
   pageSize: 6 as const,
   startPage: 1,
 }
+
+export const SORTING_OPTIONS_SELECT = [
+  { value: 'max', label: 'most voted' },
+  { value: 'min', label: 'less voted' },
+]
+
+export const SORTING_OPTIONS = {
+  MAX: 'max',
+  MIN: 'min',
+} as const

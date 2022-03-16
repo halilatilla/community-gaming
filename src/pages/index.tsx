@@ -4,13 +4,19 @@ import Head from 'next/head'
 
 import { initializeApollo, addApolloState } from '@src/graphql/apolloClient'
 import { GET_ALL_TOURNAMENTS_QUERY } from '@src/graphql/queries'
-import { GET_ALL_TOURNAMENTS_VARIABLES, PAGINATION_OPTIONS } from '@src/config/constants'
 import { useGetAllTournamentsQuery } from '@src/generated/graphql'
-import { Layout, TournamentList, Pagination } from '@src/components'
+import {
+  GET_ALL_TOURNAMENTS_VARIABLES,
+  PAGINATION_OPTIONS,
+  SORTING_OPTIONS_SELECT,
+  SORTING_OPTIONS,
+} from '@src/config/constants'
 import { useLocalStorage } from '@src/hooks'
+import { Layout, TournamentList, Pagination, Select } from '@src/components'
 
 const Home: NextPage = () => {
   const [page, setPage] = useState(PAGINATION_OPTIONS.startPage)
+  const [sortBy, setSortBy] = useState<string>(SORTING_OPTIONS.MAX)
 
   const { loading, error, data } = useGetAllTournamentsQuery({
     variables: {
@@ -32,6 +38,10 @@ const Home: NextPage = () => {
     setPage(e)
   }
 
+  const handleSortingBy = (e: string) => {
+    setSortBy(e)
+  }
+
   return (
     <>
       <Head>
@@ -40,10 +50,13 @@ const Home: NextPage = () => {
       </Head>
       <Layout>
         <main className="container space-y-8">
-          <h1 className="text-center text-4xl font-bold capitalize">Tournaments</h1>
+          <div className="flex justify-between">
+            <h1 className="text-center text-4xl font-bold capitalize">Tournaments</h1>
+            <Select options={SORTING_OPTIONS_SELECT} onChange={(e) => handleSortingBy(e.target.value)} />
+          </div>
           {loading && 'Loading...'}
           {error && 'Something went wrong...'}
-          {data && <TournamentList page={page} />}
+          {data && <TournamentList page={page} sortBy={sortBy} />}
 
           <Pagination
             current={page}
