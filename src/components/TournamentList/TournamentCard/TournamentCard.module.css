@@ -1,0 +1,27 @@
+.tournamentCard {
+  @apply flex h-[440px] flex-col overflow-hidden rounded-xl border bg-darkGrey;
+}
+
+.imageWrapper {
+  @apply relative h-[170px] w-full shrink-0;
+}
+
+.deleteButton {
+  @apply absolute right-3 top-4 hidden bg-black;
+}
+
+.vote {
+  @apply absolute top-4 left-4 h-14 w-14 flex-col rounded-lg bg-black capitalize;
+}
+
+.buttonGroup {
+  @apply flex h-full flex-col justify-between px-4 pb-4;
+}
+
+.upDownGroup {
+  @apply space-y-2 overflow-hidden bg-black p-2 capitalize;
+}
+
+.upDownButton {
+  @apply font-bold line-clamp-2;
+}
