@@ -5,11 +5,15 @@ import { ITournament } from '@src/types'
 interface ITournamentsContext {
   tournaments?: ITournament[] | null | undefined
   setTournaments: (tournaments: ITournament[] | null | undefined) => void
+  handleUpVote: (id: string) => void
+  handleDownVote: (id: string) => void
 }
 
 const initialTournamentsContext: ITournamentsContext = {
   tournaments: [],
   setTournaments: () => {},
+  handleUpVote: () => {},
+  handleDownVote: () => {},
 }
 
 const TournamentsContext = createContext<ITournamentsContext>(initialTournamentsContext)
@@ -29,7 +33,39 @@ export const TournamentsProvider: FC = ({ children }) => {
     localStorage.setItem('tournaments', JSON.stringify(tournaments))
   }, [tournaments])
 
-  return <TournamentsContext.Provider value={{ tournaments, setTournaments }}>{children}</TournamentsContext.Provider>
+  //up and add vote to tournament into the tournament list
+  const handleUpVote = (id: string) => {
+    // @ts-ignore
+    setTournaments((prevTournaments) => {
+      const updatedTournaments = prevTournaments?.map((tournament) => {
+        if (id === tournament.id) {
+          return { ...tournament, vote: (tournament.vote ?? 0) + 1 }
+        }
+        return tournament
+      })
+      return updatedTournaments
+    })
+  }
+
+  //down and add vote to tournament into the tournament list
+  const handleDownVote = (id: string) => {
+    // @ts-ignore
+    setTournaments((prevTournaments) => {
+      const updatedTournaments = prevTournaments?.map((tournament) => {
+        if (id === tournament.id) {
+          return { ...tournament, vote: (tournament.vote ?? 0) - 1 }
+        }
+        return tournament
+      })
+      return updatedTournaments
+    })
+  }
+
+  return (
+    <TournamentsContext.Provider value={{ tournaments, setTournaments, handleUpVote, handleDownVote }}>
+      {children}
+    </TournamentsContext.Provider>
+  )
 }
 
 export const useTournamentsContext = () => useContext(TournamentsContext)
