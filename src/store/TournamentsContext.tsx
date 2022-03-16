@@ -39,7 +39,7 @@ export const TournamentsProvider: FC = ({ children }) => {
     setTournaments((prevTournaments) => {
       const updatedTournaments = prevTournaments?.map((tournament) => {
         if (id === tournament.id) {
-          return { ...tournament, vote: (tournament.vote ?? 0) + 1 }
+          return { ...tournament, vote: (tournament.vote ?? 0) + 1, voteDate: Date.now() }
         }
         return tournament
       })
@@ -53,7 +53,7 @@ export const TournamentsProvider: FC = ({ children }) => {
     setTournaments((prevTournaments) => {
       const updatedTournaments = prevTournaments?.map((tournament) => {
         if (id === tournament.id) {
-          return { ...tournament, vote: (tournament.vote ?? 0) - 1 }
+          return { ...tournament, vote: (tournament.vote ?? 0) - 1, voteDate: Date.now() }
         }
         return tournament
       })
