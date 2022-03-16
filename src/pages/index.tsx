@@ -50,8 +50,8 @@ const Home: NextPage = () => {
       </Head>
       <Layout>
         <main className="container space-y-8">
-          <div className="flex justify-between">
-            <h1 className="text-center text-4xl font-bold capitalize">Tournaments</h1>
+          <div className="flex items-center justify-between">
+            <h1 className="text-center text-2xl font-bold capitalize md:text-3xl lg:text-4xl">Tournaments</h1>
             <Select options={SORTING_OPTIONS_SELECT} onChange={(e) => handleSortingBy(e.target.value)} />
           </div>
           {loading && 'Loading...'}
