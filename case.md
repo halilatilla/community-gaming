@@ -2,9 +2,9 @@
 
 - [x] The project must be developed as a spa which must be done with React JS.
 - [x] Server side renderings are must be handled via Next JS.
-- [ ] You must use Apollo Client hooks when sending a query or mutation.
-- [ ] All query responses must be cached both apolloClient context and localStorage.
-- [ ] You must use Context API as state management.
+- [x] You must use Apollo Client hooks when sending a query or mutation.
+- [x] All query responses must be cached both apolloClient context and localStorage.
+- [x] You must use Context API as state management.
 - [x] You must use a css pre-processor like "sass" or "less" or any other css pre-processors.
 - [x] You must build case in a responsive layout. You can prefer to use Bootstrap kind CSS layouts. Or you can use directly @media queries.
 - [x] You can add your own design. You do not have to do it as it seems.
@@ -32,15 +32,15 @@ When i open the page it needs to show listing page which includes all tournament
 
 ### State
 
-- [ ] You need to send a request to get 6 tournaments tournaments from database for saving them to localStorage as an initial state. When that request happened after rendering there must be a "loading" information in interface. if there are anyother tournaments which already added before by user; these needs to be also exist in localStorage in same initial state. All tournaments votes must be zero if they are coming from database directly. When i soft refresh the page; it needs to be take values from "apollo cache". otherwise it can send request again.
+- [x] You need to send a request to get 6 tournaments tournaments from database for saving them to localStorage as an initial state. When that request happened after rendering there must be a "loading" information in interface. if there are anyother tournaments which already added before by user; these needs to be also exist in localStorage in same initial state. All tournaments votes must be zero if they are coming from database directly. When i soft refresh the page; it needs to be take values from "apollo cache". otherwise it can send request again.
 
 ### Tournament Cards
 
-- [ ] Cars will have point amount, cover image, tournament name, owner name, deadline and last vote date which is a meaningful time format.
+- [x] Cars will have point amount, cover image, tournament name, owner name, deadline and last vote date which is a meaningful time format.
 - [ ] Every tournament card will have 4 buttons:
-  - [ ] **Up vote**: When user clicks on it tournaments point must be increased 1 point.
-  - [ ] **Down vote**: When user clicks on it tournaments point must be decreased 1 point.
-  - [ ] **Delete**: This button will be shown when card is hovered. When user clicks on it there must be a confirmation modal shown which it's title must include clicked item's tournament name which is saying "are you sure about to delete this tournament". This modal will have "**Cancel**" and "**Delete**" buttons.
+  - [x] **Up vote**: When user clicks on it tournaments point must be increased 1 point.
+  - [x] **Down vote**: When user clicks on it tournaments point must be decreased 1 point.
+  - [x] **Delete**: This button will be shown when card is hovered. When user clicks on it there must be a confirmation modal shown which it's title must include clicked item's tournament name which is saying "are you sure about to delete this tournament". This modal will have "**Cancel**" and "**Delete**" buttons.
   - [ ] **Update**: When user clicks on it there must be a modal shown which includes clicked item's informations to edit it. This modal will have "**Cancel**" and "**Save**" buttons.
 - [ ] Every action without voting must give a feedback to users with like toast messages or alerts. Like "Tournament deleted successfully".
 
@@ -52,7 +52,7 @@ When i open the page it needs to show listing page which includes all tournament
 
 ### Pagination
 
-- [ ] There must be a pagionation which includes 6 items per page.
+- [ ] There must be a pagination which includes 6 items per page.
 
 ### Adding a tournament
 

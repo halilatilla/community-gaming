@@ -2,9 +2,11 @@
 @import '../../node_modules/rc-dialog/assets/index.css';
 @import '../../node_modules/nprogress/nprogress.css';
 @import '../../node_modules/react-toastify/dist/ReactToastify.css';
+@import '../../node_modules/rc-pagination/assets/index.css';
 
 /* components */
 @import './components/modal.css';
+@import './components/pagination.css';
 
 @tailwind base;
 @tailwind components;

@@ -1,0 +1,23 @@
+.pagination {
+  @apply flex;
+
+  .rc-pagination-item,
+  .rc-pagination-prev,
+  .rc-pagination-next {
+    @apply flex-center h-8 w-8 rounded-lg bg-darkGrey;
+
+    a {
+      @apply text-white;
+    }
+  }
+  .rc-pagination-item-link {
+    @apply bg-darkGrey disabled:opacity-50;
+  }
+
+  .rc-pagination-prev,
+  .rc-pagination-next {
+    button {
+      @apply rounded-lg text-lg text-white;
+    }
+  }
+}

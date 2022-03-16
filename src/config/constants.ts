@@ -2,8 +2,8 @@ export const BLUR_DATA_URL =
   'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNcWg8AAc8BJpg2zxQAAAAASUVORK5CYII=' as const
 
 export const GET_ALL_TOURNAMENTS_VARIABLES = {
-  count: 6 as const,
-  offset: 0 as const,
+  count: 24,
+  offset: 1,
 }
 
 export const MENU_ITEMS = [
@@ -20,3 +20,8 @@ export const MENU_ITEMS = [
     text: 'sing in',
   },
 ]
+
+export const PAGINATION_OPTIONS = {
+  pageSize: 6 as const,
+  startPage: 1,
+}
