@@ -36,7 +36,7 @@ const TournamentCard: FC<ITournamentCard> = ({ tournament }) => {
         content={tournament.name}
         header="are you sure about to delete this tournament?"
       />
-      <li className={classnames(styles.tournamentCard, 'group')}>
+      <div className={classnames(styles.tournamentCard, 'group')}>
         <div className={styles.imageWrapper}>
           <Image
             src={tournament.owner.avatar}
@@ -77,7 +77,7 @@ const TournamentCard: FC<ITournamentCard> = ({ tournament }) => {
             <Button label="update" />
           </div>
         </div>
-      </li>
+      </div>
     </>
   )
 }

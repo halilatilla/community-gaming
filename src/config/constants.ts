@@ -35,3 +35,9 @@ export const SORTING_OPTIONS = {
   MAX: 'max',
   MIN: 'min',
 } as const
+
+export const TOURNAMENT_LIST_ANIMATION_OPTIONS = {
+  type: 'spring',
+  damping: 20,
+  stiffness: 200,
+}
