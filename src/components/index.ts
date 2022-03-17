@@ -11,4 +11,5 @@ export { default as TournamentForm } from './TournamentForm/TournamentForm'
 //form elements
 export { default as Select } from './Form/Select/Select'
 export { default as Input } from './Form/Input/Input'
+export { default as InputNumber } from './Form/InputNumber/InputNumber'
 export { default as FileUpload } from './Form/FileUpload/FileUpload'

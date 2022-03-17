@@ -10,6 +10,7 @@ export const addNewTournamentValidation = Yup.object({
   name: requiredField,
   alias: requiredField,
   ownerUsername: requiredField,
+  prize: requiredField,
   deadline: requiredField,
   ownerAvatar: fileRequired,
   coverImage: fileRequired,

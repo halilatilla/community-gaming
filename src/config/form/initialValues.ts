@@ -6,6 +6,7 @@ export const addNewTournamentInitialValues = {
   ownerUsername: '',
   ownerId: nanoid(),
   deadline: '',
+  prize: '',
   ownerAvatar: { file: null, preview: '' },
   coverImage: { file: null, preview: '' },
 }
