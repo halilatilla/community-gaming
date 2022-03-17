@@ -11,8 +11,6 @@ import styles from './InputNumber.module.css'
 const InputNumber: FC<IInputNumber> = ({ label, name, isRequired, ...rest }) => {
   const [field, meta] = useField(name)
 
-  console.log(field)
-
   return (
     <label className="block">
       {label && <Label label={label} isRequired={isRequired} />}

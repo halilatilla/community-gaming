@@ -27,7 +27,7 @@ const TournamentForm: FC<ITournamentForm> = () => {
         <Input label="owner id" name="ownerId" disabled />
         <FileUpload name="ownerAvatar" label="owner avatar" isRequired />
         <FileUpload name="coverImage" label="cover image" isRequired />
-        <Button type="submit" label="Add New" className="w-full" onClick={() => {}} />
+        <Button type="submit" label="Add New" className="!mt-12 block" />
       </Form>
     </Formik>
   )

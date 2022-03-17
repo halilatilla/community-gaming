@@ -23,7 +23,7 @@ export const MENU_ITEMS = [
   },
   {
     href: '/#',
-    text: 'sing in',
+    text: 'sign in',
     Icon: RiLoginCircleFill,
   },
 ]
