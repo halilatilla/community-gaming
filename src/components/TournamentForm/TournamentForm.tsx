@@ -22,7 +22,6 @@ const TournamentForm: FC<ITournamentForm> = () => {
         <Input label="owner id" name="ownerId" disabled />
         <Input label="deadline" name="deadline" placeholder="Enter your deadline" isRequired type="date" />
         <FileUpload name="coverImage" label="cover image" isRequired />
-        <button>submit</button>
       </Form>
     </Formik>
   )
