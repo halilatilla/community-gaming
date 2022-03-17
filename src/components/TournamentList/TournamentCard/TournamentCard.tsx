@@ -59,10 +59,10 @@ const TournamentCard: FC<ITournamentCard> = ({ tournament }) => {
             <span>vote</span>
           </div>
         </div>
-        <div className={styles.buttonGroup}>
-          <div className={styles.upDownGroup}>
-            <p className={styles.upDownButton}>{tournament.name}</p>
-            <p className={styles.upDownButton}>owner: {tournament.owner.username}</p>
+        <div className={styles.detail}>
+          <div className={styles.infoGroup}>
+            <p className={styles.name}>{tournament.name}</p>
+            <p className={styles.name}>owner: {tournament.owner.username}</p>
             <p>{format(new Date(tournament.deadline), 'MM/dd/yyyy KK:mm')}</p>
           </div>
           <div className="flex justify-between">

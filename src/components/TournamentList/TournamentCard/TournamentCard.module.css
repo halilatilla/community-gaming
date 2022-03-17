@@ -14,14 +14,14 @@
   @apply absolute top-4 left-4 h-14 w-14 flex-col rounded-lg bg-black capitalize;
 }
 
-.buttonGroup {
+.detail {
   @apply flex h-full flex-col justify-between px-4 pb-4;
 }
 
-.upDownGroup {
-  @apply space-y-2 overflow-hidden bg-black p-2 capitalize;
+.infoGroup {
+  @apply space-y-2 overflow-hidden rounded-b-md bg-black p-2 capitalize;
 }
 
-.upDownButton {
+.name {
   @apply font-bold line-clamp-2;
 }
