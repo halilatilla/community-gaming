@@ -1,3 +1,7 @@
+import { GiBattleGear } from 'react-icons/gi'
+import { MdAddModerator } from 'react-icons/md'
+import { RiLoginCircleFill } from 'react-icons/ri'
+
 export const BLUR_DATA_URL =
   'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNcWg8AAc8BJpg2zxQAAAAASUVORK5CYII=' as const
 
@@ -9,15 +13,18 @@ export const GET_ALL_TOURNAMENTS_VARIABLES = {
 export const MENU_ITEMS = [
   {
     href: '/',
-    text: 'tournaments listing',
+    text: 'tournaments',
+    Icon: GiBattleGear,
   },
   {
     href: '/add-new',
     text: 'add new',
+    Icon: MdAddModerator,
   },
   {
     href: '/#',
     text: 'sing in',
+    Icon: RiLoginCircleFill,
   },
 ]
 
