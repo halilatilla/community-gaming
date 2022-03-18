@@ -7,6 +7,7 @@ export { default as TournamentList } from './TournamentList/TournamentList'
 export { default as Modal } from './Modal/Modal'
 export { default as Pagination } from './Pagination/Pagination'
 export { default as TournamentForm } from './TournamentForm/TournamentForm'
+export { default as TournamentListWithPaginationAndSorting } from './TournamentListWithPaginationAndSorting/TournamentListWithPaginationAndSorting'
 
 //form elements
 export { default as Select } from './Form/Select/Select'
