@@ -10,7 +10,7 @@ const MenuItem: FC<IMenuItem> = ({ href, text, Icon }) => {
 
   return (
     <li className={classnames('capitalize hover:text-primary', { 'text-primary': pathname === href })}>
-      <Link href={href}>
+      <Link href={href} prefetch={false}>
         <a className="flex flex-col items-center space-y-2 md:space-y-0">
           {/* @ts-ignore */}
           <Icon className="text-lg md:hidden" />
