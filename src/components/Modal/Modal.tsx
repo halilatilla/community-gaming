@@ -10,7 +10,7 @@ const Modal: FC<IModal> = ({ className, cancel, confirm, children, isVisible, he
     <Dialog
       animation="zoom"
       maskAnimation="fade"
-      onClose={cancel.onClose}
+      onClose={cancel?.onClose}
       visible={isVisible}
       className={classnames(className)}
       closeIcon={<span />}
@@ -22,8 +22,8 @@ const Modal: FC<IModal> = ({ className, cancel, confirm, children, isVisible, he
       </div>
 
       <div className="flex justify-end space-x-4">
-        <Button label={cancel.label} onClick={cancel.onClose} />
-        <Button label={confirm.label} className="text-danger" onClick={confirm.onConfirm} />
+        {cancel?.onClose && <Button label={cancel?.label} onClick={cancel?.onClose} />}
+        {confirm?.onConfirm && <Button label={confirm?.label} className="text-danger" onClick={confirm?.onConfirm} />}
       </div>
     </Dialog>
   )

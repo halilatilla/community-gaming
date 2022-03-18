@@ -8,6 +8,7 @@ import classnames from 'classnames'
 import { BLUR_DATA_URL } from '@src/config/constants'
 import { Button, Modal } from '@src/components'
 import { useTournamentsContext } from '@src/store'
+import UpdateTournament from '../UpdateTournament/UpdateTournament'
 import ITournamentCard from './TournamentCard.types'
 import styles from './TournamentCard.module.css'
 
@@ -28,10 +29,6 @@ const TournamentCard: FC<ITournamentCard> = ({ tournament }) => {
     setIsDeleteModalVisible(false)
   }
 
-  const handleUpdateConfirm = () => {
-    setIsUpdateModalVisible(false)
-  }
-
   const handleUpdateClose = () => {
     setIsUpdateModalVisible(false)
   }
@@ -45,13 +42,8 @@ const TournamentCard: FC<ITournamentCard> = ({ tournament }) => {
         content={tournament.name}
         header="are you sure about to delete this tournament?"
       />
-      <Modal
-        isVisible={isUpdateModalVisible}
-        confirm={{ label: 'update', onConfirm: handleUpdateConfirm }}
-        cancel={{ label: 'cancel', onClose: handleUpdateClose }}
-        header={`update ${tournament.name}`}
-      >
-        update this
+      <Modal isVisible={isUpdateModalVisible} header={`update ${tournament.name}`}>
+        <UpdateTournament tournament={tournament} onCancel={handleUpdateClose} />
       </Modal>
       <div className={classnames(styles.tournamentCard, 'group')}>
         <div className={styles.imageWrapper}>

@@ -1,2 +1,2 @@
-export { addNewTournamentInitialValues } from './initialValues'
-export { addNewTournamentValidation } from './validations'
+export { addNewTournamentInitialValues, updateTournamentInitialValues } from './initialValues'
+export { addNewTournamentValidation, updateTournamentValidation } from './validations'
