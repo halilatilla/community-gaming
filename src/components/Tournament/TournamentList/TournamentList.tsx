@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import { useTournamentsContext } from '@src/store'
 import { getPaginatedList, getSortedList } from '@src/lib'
 import { PAGINATION_OPTIONS, TOURNAMENT_LIST_ANIMATION_OPTIONS } from '@src/config/constants'
-import TournamentCard from './TournamentCard/TournamentCard'
+import TournamentCard from '../TournamentCard/TournamentCard'
 import ITournamentList from './TournamentList.types'
 
 const TournamentList: FC<ITournamentList> = ({ className, page, sortBy, ...rest }) => {

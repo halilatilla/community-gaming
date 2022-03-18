@@ -5,7 +5,7 @@ import Dialog from 'rc-dialog'
 import { Button } from '@src/components'
 import IModal from './Modal.types'
 
-const Modal: FC<IModal> = ({ className, cancel, confirm, isVisible, header, content }) => {
+const Modal: FC<IModal> = ({ className, cancel, confirm, children, isVisible, header, content }) => {
   return (
     <Dialog
       animation="zoom"
@@ -17,7 +17,8 @@ const Modal: FC<IModal> = ({ className, cancel, confirm, isVisible, header, cont
     >
       <div className="space-y-3">
         <p className="text-center first-letter:uppercase">{header}</p>
-        <div className="max-w-full text-center text-xl font-bold capitalize"> {content} </div>
+        {content && <div className="max-w-full text-center text-xl font-bold capitalize">{content}</div>}
+        {children}
       </div>
 
       <div className="flex justify-end space-x-4">
