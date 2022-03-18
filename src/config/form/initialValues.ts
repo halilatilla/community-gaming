@@ -6,9 +6,20 @@ export const addNewTournamentInitialValues = {
   owner: {
     id: nanoid(),
     username: '',
-    avatar: { file: null, preview: '' },
+    avatar: '',
   },
   deadline: '',
   prize: '',
-  coverImage: { file: null, preview: '' },
+  coverImage: '',
+}
+
+export const updateTournamentInitialValues = {
+  deadline: '',
+  id: '',
+  name: '',
+  owner: {
+    id: '',
+    username: '',
+    avatar: '',
+  },
 }

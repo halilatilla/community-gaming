@@ -1,10 +1,6 @@
 import * as Yup from 'yup'
 
 const requiredField = Yup.string().required('This field is required')
-const fileRequired = Yup.object().shape({
-  file: Yup.mixed().required('This field is required').nullable(),
-  preview: Yup.string().required('This field is required'),
-})
 
 export const addNewTournamentValidation = Yup.object({
   name: requiredField,
@@ -12,9 +8,20 @@ export const addNewTournamentValidation = Yup.object({
   owner: Yup.object({
     id: requiredField,
     username: requiredField,
-    avatar: fileRequired,
+    avatar: requiredField,
   }),
   prize: requiredField,
   deadline: requiredField,
-  coverImage: fileRequired,
+  coverImage: requiredField,
+})
+
+export const updateTournamentValidation = Yup.object({
+  deadline: requiredField,
+  id: requiredField,
+  name: requiredField,
+  owner: Yup.object({
+    avatar: requiredField,
+    id: requiredField,
+    username: requiredField,
+  }),
 })

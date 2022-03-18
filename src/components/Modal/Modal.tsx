@@ -5,24 +5,25 @@ import Dialog from 'rc-dialog'
 import { Button } from '@src/components'
 import IModal from './Modal.types'
 
-const Modal: FC<IModal> = ({ className, cancel, confirm, isVisible, header, content }) => {
+const Modal: FC<IModal> = ({ className, cancel, confirm, children, isVisible, header, content }) => {
   return (
     <Dialog
       animation="zoom"
       maskAnimation="fade"
-      onClose={cancel.onClose}
+      onClose={cancel?.onClose}
       visible={isVisible}
       className={classnames(className)}
       closeIcon={<span />}
     >
       <div className="space-y-3">
         <p className="text-center first-letter:uppercase">{header}</p>
-        <div className="max-w-full text-center text-xl font-bold capitalize"> {content} </div>
+        {content && <div className="max-w-full text-center text-xl font-bold capitalize">{content}</div>}
+        {children}
       </div>
 
       <div className="flex justify-end space-x-4">
-        <Button label={cancel.label} onClick={cancel.onClose} />
-        <Button label={confirm.label} className="text-danger" onClick={confirm.onConfirm} />
+        {cancel?.onClose && <Button label={cancel?.label} onClick={cancel?.onClose} />}
+        {confirm?.onConfirm && <Button label={confirm?.label} className="text-danger" onClick={confirm?.onConfirm} />}
       </div>
     </Dialog>
   )

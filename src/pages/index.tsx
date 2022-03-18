@@ -24,8 +24,6 @@ const Home: NextPage = () => {
     }
   }, [data])
 
-  console.log(data)
-
   return (
     <>
       <Head>

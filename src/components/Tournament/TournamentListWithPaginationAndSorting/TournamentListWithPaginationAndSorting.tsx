@@ -6,7 +6,8 @@ import {
   SORTING_OPTIONS_SELECT,
   SORTING_OPTIONS,
 } from '@src/config/constants'
-import { Select, TournamentList, Pagination } from '@src/components'
+import { Select, Pagination } from '@src/components'
+import TournamentList from '../TournamentList/TournamentList'
 
 const TournamentListWithPaginationAndSorting: FC = () => {
   const [page, setPage] = useState(PAGINATION_OPTIONS.startPage)

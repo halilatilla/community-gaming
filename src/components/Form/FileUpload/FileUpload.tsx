@@ -3,7 +3,6 @@ import { useDropzone } from 'react-dropzone'
 import { useField } from 'formik'
 import classnames from 'classnames'
 import { HiTrash } from 'react-icons/hi'
-import { isEmpty } from 'lodash'
 
 import { Button } from '@src/components'
 import RequiredText from '../RequiredText/RequiredText'
@@ -23,10 +22,7 @@ const FileUpload: FC<IFileUpload> = ({
 }) => {
   const [{ value }, meta, { setValue }] = useField(name)
 
-  const onDrop = useCallback(
-    (acceptedFiles) => setValue({ file: acceptedFiles[0], preview: URL?.createObjectURL(acceptedFiles[0]) }),
-    [],
-  )
+  const onDrop = useCallback((acceptedFiles) => setValue(URL?.createObjectURL(acceptedFiles[0])), [])
 
   const { getRootProps, getInputProps, isDragAccept, isDragReject } = useDropzone({
     onDrop,
@@ -37,7 +33,7 @@ const FileUpload: FC<IFileUpload> = ({
 
   const removePhoto = (e: any) => {
     e.stopPropagation()
-    setValue({ file: null, preview: '' })
+    setValue('')
   }
 
   return (
@@ -56,15 +52,14 @@ const FileUpload: FC<IFileUpload> = ({
       >
         <input {...getInputProps()} />
         {children}
-        {isEmpty(value?.preview) && (
-          <div className="absolute opacity-50">Drag 'n' drop some files here, or click to select files</div>
-        )}
-        {value?.preview && (
+        {!value && <div className="absolute opacity-50">Drag 'n' drop some files here, or click to select files</div>}
+        {value && (
           <div className="relative">
-            <img src={value?.preview} alt={value?.file?.name} className="h-full w-full object-cover object-center" />
+            <img src={value} alt={value?.file?.name} className="h-full w-full object-cover object-center" />
           </div>
         )}
-        {!isEmpty(value?.preview) && (
+
+        {value && (
           <Button
             className="absolute right-3 top-3 hidden group-hover:block"
             appearance="icon"
@@ -75,7 +70,7 @@ const FileUpload: FC<IFileUpload> = ({
           </Button>
         )}
       </div>
-      <RequiredText meta={meta} isFileUpload />
+      <RequiredText meta={meta} />
     </label>
   )
 }

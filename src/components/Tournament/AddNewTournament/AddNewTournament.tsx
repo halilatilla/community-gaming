@@ -7,9 +7,8 @@ import { toast } from 'react-toastify'
 import { useTournamentsContext } from '@src/store'
 import { Input, InputNumber, FileUpload, Button } from '@src/components'
 import { addNewTournamentInitialValues, addNewTournamentValidation } from '@src/config/form'
-import ITournamentForm from './TournamentForm.types'
 
-const TournamentForm: FC<ITournamentForm> = () => {
+const TournamentForm: FC = () => {
   const { tournaments, setTournaments } = useTournamentsContext()
   const router = useRouter()
 
