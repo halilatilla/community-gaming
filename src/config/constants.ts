@@ -5,8 +5,10 @@ import { RiLoginCircleFill } from 'react-icons/ri'
 export const BLUR_DATA_URL =
   'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNcWg8AAc8BJpg2zxQAAAAASUVORK5CYII=' as const
 
+export const GET_ALL_TOURNAMENTS_COUNT = 20
+
 export const GET_ALL_TOURNAMENTS_VARIABLES = {
-  count: 24,
+  count: GET_ALL_TOURNAMENTS_COUNT,
   offset: 1,
 }
 
