@@ -3,10 +3,12 @@ import { nanoid } from 'nanoid'
 export const addNewTournamentInitialValues = {
   name: '',
   alias: '',
-  ownerUsername: '',
-  ownerId: nanoid(),
+  owner: {
+    id: nanoid(),
+    username: '',
+    avatar: { file: null, preview: '' },
+  },
   deadline: '',
   prize: '',
-  ownerAvatar: { file: null, preview: '' },
   coverImage: { file: null, preview: '' },
 }

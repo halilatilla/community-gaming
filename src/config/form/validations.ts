@@ -9,9 +9,12 @@ const fileRequired = Yup.object().shape({
 export const addNewTournamentValidation = Yup.object({
   name: requiredField,
   alias: requiredField,
-  ownerUsername: requiredField,
+  owner: Yup.object({
+    id: requiredField,
+    username: requiredField,
+    avatar: fileRequired,
+  }),
   prize: requiredField,
   deadline: requiredField,
-  ownerAvatar: fileRequired,
   coverImage: fileRequired,
 })
