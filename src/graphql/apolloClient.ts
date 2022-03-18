@@ -1,6 +1,5 @@
 import { useMemo } from 'react'
 import { ApolloClient, HttpLink, InMemoryCache, NormalizedCacheObject } from '@apollo/client'
-import { relayStylePagination } from '@apollo/client/utilities'
 import merge from 'deepmerge'
 import isEqual from 'lodash/isEqual'
 
@@ -15,16 +14,7 @@ function createApolloClient() {
       uri: process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT, // Server URL (must be absolute)
       credentials: 'same-origin', // Additional fetch() options like `credentials` or `headers`
     }),
-    cache: new InMemoryCache({
-      // typePolicies is not required to use Apollo with Next.js - only for doing pagination.
-      typePolicies: {
-        Query: {
-          fields: {
-            abc: relayStylePagination(),
-          },
-        },
-      },
-    }),
+    cache: new InMemoryCache(),
   })
 }
 

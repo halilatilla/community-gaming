@@ -1,15 +1,12 @@
 import { FC, useState } from 'react'
 
-import {
-  GET_ALL_TOURNAMENTS_COUNT,
-  PAGINATION_OPTIONS,
-  SORTING_OPTIONS_SELECT,
-  SORTING_OPTIONS,
-} from '@src/config/constants'
+import { useTournamentsContext } from '@src/store'
+import { PAGINATION_OPTIONS, SORTING_OPTIONS_SELECT, SORTING_OPTIONS } from '@src/config/constants'
 import { Select, Pagination } from '@src/components'
 import TournamentList from '../TournamentList/TournamentList'
 
 const TournamentListWithPaginationAndSorting: FC = () => {
+  const { tournaments } = useTournamentsContext()
   const [page, setPage] = useState(PAGINATION_OPTIONS.startPage)
   const [sortBy, setSortBy] = useState<string>(SORTING_OPTIONS.MAX)
 
@@ -32,7 +29,7 @@ const TournamentListWithPaginationAndSorting: FC = () => {
 
       <Pagination
         current={page}
-        total={GET_ALL_TOURNAMENTS_COUNT}
+        total={tournaments?.length || 0}
         pageSize={PAGINATION_OPTIONS.pageSize}
         onChange={handlePagination}
         hideOnSinglePage={true}
