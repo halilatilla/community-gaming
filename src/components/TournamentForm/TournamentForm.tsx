@@ -1,6 +1,8 @@
 import { FC } from 'react'
 import { Formik, Form } from 'formik'
 import { nanoid } from 'nanoid'
+import { useRouter } from 'next/router'
+import { toast } from 'react-toastify'
 
 import { useTournamentsContext } from '@src/store'
 import { Input, InputNumber, FileUpload, Button } from '@src/components'
@@ -9,9 +11,12 @@ import ITournamentForm from './TournamentForm.types'
 
 const TournamentForm: FC<ITournamentForm> = () => {
   const { tournaments, setTournaments } = useTournamentsContext()
+  const router = useRouter()
 
   const onSubmitHandler = (values: any) => {
     setTournaments([...tournaments!, { ...values, id: nanoid() }])
+    router.push('/')
+    toast.success(`Tournament added successfully`)
   }
 
   return (
