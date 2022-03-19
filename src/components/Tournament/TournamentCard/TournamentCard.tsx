@@ -60,7 +60,7 @@ const TournamentCard: FC<ITournamentCard> = ({ tournament }) => {
             appearance="icon"
             onClick={() => setIsDeleteModalVisible(true)}
           >
-            <HiTrash className="text-xl text-danger" />
+            <HiTrash className="text-xl text-white" />
           </Button>
 
           <div className={classnames(styles.vote, 'flex-center')}>

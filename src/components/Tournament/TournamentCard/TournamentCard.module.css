@@ -7,7 +7,7 @@
 }
 
 .deleteButton {
-  @apply absolute right-3 top-4 hidden bg-black;
+  @apply absolute right-3 top-4 hidden bg-black hover:bg-danger;
 }
 
 .vote {
