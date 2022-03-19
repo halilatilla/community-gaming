@@ -20,7 +20,7 @@ const TournamentCard: FC<ITournamentCard> = ({ tournament }) => {
   const handleDeleteConfirm = () => {
     //find tournament into tournaments array and remove it
     const newTournaments = tournaments?.filter((t) => t.id !== tournament.id)
-    setTournaments(newTournaments)
+    setTournaments(newTournaments!)
     setIsDeleteModalVisible(false)
     toast.success(`Tournament deleted successfully`)
   }

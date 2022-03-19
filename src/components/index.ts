@@ -8,10 +8,10 @@ export { default as Pagination } from './Pagination/Pagination'
 export { default as Indicator } from './Indicator/Indicator'
 
 //form elements
-export { default as Select } from './Form/Select/Select'
-export { default as Input } from './Form/Input/Input'
-export { default as InputNumber } from './Form/InputNumber/InputNumber'
-export { default as FileUpload } from './Form/FileUpload/FileUpload'
+export { default as Select } from './FormElements/Select/Select'
+export { default as Input } from './FormElements/Input/Input'
+export { default as InputNumber } from './FormElements/InputNumber/InputNumber'
+export { default as FileUpload } from './FormElements/FileUpload/FileUpload'
 
 //tournament
 export { default as AddNewTournament } from './Tournament/AddNewTournament/AddNewTournament'

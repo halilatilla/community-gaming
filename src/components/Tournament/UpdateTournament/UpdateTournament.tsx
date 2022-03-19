@@ -21,7 +21,7 @@ const UpdateTournament: FC<IUpdateTournament> = ({ tournament: initialValues, on
       }
       return t
     })
-    setTournaments(newTournaments)
+    setTournaments(newTournaments!)
     toast.success('Tournament updated successfully')
     onCancel()
   }

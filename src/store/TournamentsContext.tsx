@@ -3,8 +3,8 @@ import React, { createContext, useContext, useState, FC, useEffect } from 'react
 import { ITournament } from '@src/types'
 
 interface ITournamentsContext {
-  tournaments?: ITournament[] | null | undefined
-  setTournaments: (tournaments: ITournament[] | null | undefined) => void
+  tournaments?: ITournament[]
+  setTournaments: (tournaments: ITournament[]) => void
   handleUpVote: (id: string) => void
   handleDownVote: (id: string) => void
 }

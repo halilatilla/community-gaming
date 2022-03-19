@@ -35,7 +35,7 @@ export const getServerSideProps = async () => {
     variables: GET_ALL_TOURNAMENTS_VARIABLES,
   })
 
-  const listedTournaments: ITournament[] = data.data.listedTournaments
+  const listedTournaments: ITournament[] = data.data.listedTournaments ?? {}
 
   return addApolloState(apolloClient, {
     props: {
