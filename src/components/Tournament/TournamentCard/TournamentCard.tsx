@@ -6,8 +6,8 @@ import { format } from 'date-fns'
 import classnames from 'classnames'
 
 import { BLUR_DATA_URL } from '@src/config/constants'
-import { Button, Modal } from '@src/components'
 import { useTournamentsContext } from '@src/store'
+import { Button, Modal, Indicator } from '@src/components'
 import UpdateTournament from '../UpdateTournament/UpdateTournament'
 import ITournamentCard from './TournamentCard.types'
 import styles from './TournamentCard.module.css'
@@ -64,7 +64,7 @@ const TournamentCard: FC<ITournamentCard> = ({ tournament }) => {
           </Button>
 
           <div className={classnames(styles.vote, 'flex-center')}>
-            <span>{tournament?.vote ?? 0}</span>
+            <Indicator count={tournament?.vote ?? 0} />
             <span>vote</span>
           </div>
         </div>

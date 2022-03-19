@@ -1,0 +1,3 @@
+.indicator {
+  @apply relative h-6 w-6 overflow-hidden rounded-full bg-black font-bold text-white;
+}
