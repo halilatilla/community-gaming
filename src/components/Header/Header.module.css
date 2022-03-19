@@ -1,3 +1,3 @@
 .header {
-  @apply fixed top-0 right-0 left-0 z-10 flex h-16 items-center border-b border-primary border-opacity-50 bg-dark md:relative;
+  @apply fixed top-0 right-0 left-0 z-10 flex h-20 items-center border-b border-primary border-opacity-50 bg-dark md:relative;
 }

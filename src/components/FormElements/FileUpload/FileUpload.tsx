@@ -52,7 +52,9 @@ const FileUpload: FC<IFileUpload> = ({
       >
         <input {...getInputProps()} />
         {children}
-        {!value && <div className="absolute opacity-50">Drag 'n' drop some files here, or click to select files</div>}
+        {!value && (
+          <div className=" text-center opacity-50">Drag 'n' drop some files here, or click to select files</div>
+        )}
         {value && (
           <div className="relative">
             <img src={value} alt={value?.file?.name} className="h-full w-full object-cover object-center" />
