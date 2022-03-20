@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, FC, useEffect } from 'react'
+import { nanoid } from 'nanoid'
 
 import ITournamentsContext from './Tournaments.types'
 
@@ -8,6 +9,8 @@ const initialTournamentsContext: ITournamentsContext = {
   upVote: () => {},
   downVote: () => {},
   removeTournament: () => {},
+  updateTournament: () => {},
+  addNewTournament: () => {},
 }
 
 const TournamentsContext = createContext<ITournamentsContext>(initialTournamentsContext)
@@ -62,8 +65,32 @@ export const TournamentsProvider: FC = ({ children }) => {
     })
   }
 
+  const updateTournament = (tournament: any) => {
+    setTournaments((prevTournaments) => {
+      const updatedTournaments = prevTournaments?.map((t) => {
+        if (t.id === tournament.id) {
+          return {
+            ...t,
+            ...tournament,
+          }
+        }
+        return t
+      })
+      return updatedTournaments
+    })
+  }
+
+  const addNewTournament = (tournament: any) => {
+    setTournaments((prevTournaments) => {
+      const updatedTournaments = [...prevTournaments!, { ...tournament, id: nanoid() }]
+      return updatedTournaments
+    })
+  }
+
   return (
-    <TournamentsContext.Provider value={{ tournaments, setTournaments, upVote, downVote, removeTournament }}>
+    <TournamentsContext.Provider
+      value={{ tournaments, setTournaments, upVote, downVote, removeTournament, updateTournament, addNewTournament }}
+    >
       {children}
     </TournamentsContext.Provider>
   )

@@ -1,6 +1,5 @@
 import { FC } from 'react'
 import { Formik, Form } from 'formik'
-import { nanoid } from 'nanoid'
 import { useRouter } from 'next/router'
 import { toast } from 'react-toastify'
 
@@ -8,12 +7,12 @@ import { useTournamentsContext } from '@src/store'
 import { Input, InputNumber, FileUpload, Button, Datepicker } from '@src/components'
 import { addNewTournamentInitialValues, addNewTournamentValidation } from '@src/config/form'
 
-const TournamentForm: FC = () => {
-  const { tournaments, setTournaments } = useTournamentsContext()
+const AddNewTournament: FC = () => {
+  const { addNewTournament } = useTournamentsContext()
   const router = useRouter()
 
   const onSubmitHandler = (values: any) => {
-    setTournaments([...tournaments!, { ...values, id: nanoid() }])
+    addNewTournament(values)
     router.push('/')
     toast.success(`Tournament added successfully`)
   }
@@ -40,4 +39,4 @@ const TournamentForm: FC = () => {
   )
 }
 
-export default TournamentForm
+export default AddNewTournament
