@@ -4,10 +4,7 @@ import Button from './Button'
 
 describe('Button', () => {
   const DATA = {
-    label: '',
     onClick: () => {},
-    className: '',
-    disabled: false,
   }
 
   it('renders correctly', () => {
