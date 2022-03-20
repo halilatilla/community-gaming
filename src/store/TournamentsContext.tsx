@@ -5,8 +5,9 @@ import ITournamentsContext from './Tournaments.types'
 const initialTournamentsContext: ITournamentsContext = {
   tournaments: [],
   setTournaments: () => {},
-  handleUpVote: () => {},
-  handleDownVote: () => {},
+  upVote: () => {},
+  downVote: () => {},
+  removeTournament: () => {},
 }
 
 const TournamentsContext = createContext<ITournamentsContext>(initialTournamentsContext)
@@ -29,7 +30,7 @@ export const TournamentsProvider: FC = ({ children }) => {
   }, [tournaments])
 
   //up and add vote to tournament into the tournament list
-  const handleUpVote = (id: string) => {
+  const upVote = (id: string) => {
     setTournaments((prevTournaments) => {
       const updatedTournaments = prevTournaments?.map((tournament) => {
         if (id === tournament.id) {
@@ -42,7 +43,7 @@ export const TournamentsProvider: FC = ({ children }) => {
   }
 
   //down and add vote to tournament into the tournament list
-  const handleDownVote = (id: string) => {
+  const downVote = (id: string) => {
     setTournaments((prevTournaments) => {
       const updatedTournaments = prevTournaments?.map((tournament) => {
         if (id === tournament.id) {
@@ -54,8 +55,15 @@ export const TournamentsProvider: FC = ({ children }) => {
     })
   }
 
+  const removeTournament = (id: string) => {
+    setTournaments((prevTournaments) => {
+      const updatedTournaments = prevTournaments?.filter((tournament) => tournament.id !== id)
+      return updatedTournaments
+    })
+  }
+
   return (
-    <TournamentsContext.Provider value={{ tournaments, setTournaments, handleUpVote, handleDownVote }}>
+    <TournamentsContext.Provider value={{ tournaments, setTournaments, upVote, downVote, removeTournament }}>
       {children}
     </TournamentsContext.Provider>
   )

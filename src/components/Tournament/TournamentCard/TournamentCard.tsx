@@ -8,25 +8,26 @@ import classnames from 'classnames'
 import { BLUR_DATA_URL } from '@src/config/constants'
 import { useTournamentsContext } from '@src/store'
 import { Button, Modal, Indicator } from '@src/components'
+
 import UpdateTournament from '../UpdateTournament/UpdateTournament'
 import ITournamentCard from './TournamentCard.types'
 import styles from './TournamentCard.module.css'
 
 const TournamentCard: FC<ITournamentCard> = ({ tournament }) => {
-  const [isDeleteModalVisible, setIsDeleteModalVisible] = useState(false)
+  const [isRemoveModalVisible, setIsRemoveModalVisible] = useState(false)
   const [isUpdateModalVisible, setIsUpdateModalVisible] = useState(false)
-  const { tournaments, setTournaments, handleUpVote, handleDownVote } = useTournamentsContext()
+  const { upVote, downVote, removeTournament } = useTournamentsContext()
 
-  const handleDeleteConfirm = () => {
+  const handleRemoveConfirm = () => {
     //find tournament into tournaments array and remove it
-    const newTournaments = tournaments?.filter((t) => t.id !== tournament.id)
-    setTournaments(newTournaments!)
-    setIsDeleteModalVisible(false)
-    toast.success(`Tournament deleted successfully`)
+    removeTournament(tournament.id)
+
+    setIsRemoveModalVisible(false)
+    toast.warning(`Tournament deleted successfully`)
   }
 
-  const handleDeleteClose = () => {
-    setIsDeleteModalVisible(false)
+  const handleRemoveClose = () => {
+    setIsRemoveModalVisible(false)
   }
 
   const handleUpdateClose = () => {
@@ -36,9 +37,9 @@ const TournamentCard: FC<ITournamentCard> = ({ tournament }) => {
   return (
     <>
       <Modal
-        isVisible={isDeleteModalVisible}
-        confirm={{ label: 'delete', onConfirm: handleDeleteConfirm }}
-        cancel={{ label: 'cancel', onClose: handleDeleteClose }}
+        isVisible={isRemoveModalVisible}
+        confirm={{ label: 'delete', onConfirm: handleRemoveConfirm }}
+        cancel={{ label: 'cancel', onClose: handleRemoveClose }}
         content={tournament.name}
         header="are you sure about to delete this tournament?"
       />
@@ -58,14 +59,14 @@ const TournamentCard: FC<ITournamentCard> = ({ tournament }) => {
           <Button
             className={classnames(styles.deleteButton, 'group-hover:block')}
             appearance="icon"
-            onClick={() => setIsDeleteModalVisible(true)}
+            onClick={() => setIsRemoveModalVisible(true)}
           >
             <HiTrash className="text-xl text-white" />
           </Button>
 
           <div className={classnames(styles.vote, 'flex-center')}>
             <Indicator count={tournament?.vote ?? 0} />
-            <span>vote</span>
+            <span className="font-medium">vote</span>
           </div>
         </div>
         <div className={styles.detail}>
@@ -76,10 +77,10 @@ const TournamentCard: FC<ITournamentCard> = ({ tournament }) => {
           </div>
           <div className="flex justify-between">
             <div className="space-x-2">
-              <Button label="up" onClick={() => handleUpVote(tournament.id)} />
+              <Button label="up" onClick={() => upVote(tournament.id)} />
               <Button
                 label="down"
-                onClick={() => handleDownVote(tournament.id)}
+                onClick={() => downVote(tournament.id)}
                 disabled={tournament.vote === 0 || !tournament.vote}
               />
             </div>
