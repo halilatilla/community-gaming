@@ -1,4 +1,6 @@
-# Community Gaming
+# Community Gaming [Demo](https://community-gaming-indol.vercel.app/)
+
+![ezgif com-gif-maker (2)](https://user-images.githubusercontent.com/27916419/159185073-952881af-2e85-4a76-a272-1577aab2e954.gif)
 
 <br>
 
