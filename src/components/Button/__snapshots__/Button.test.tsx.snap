@@ -6,7 +6,6 @@ exports[`Button renders correctly 1`] = `
     class="button undefined"
     type="button"
   >
-    
      
   </button>
 </div>

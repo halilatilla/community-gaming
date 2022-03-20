@@ -26,7 +26,7 @@ const Home = ({ listedTournaments }: InferGetServerSidePropsType<typeof getServe
 
 export default Home
 
-//getAllTournamentsQuery initializes the apollo client and returns the data
+//getAllTournamentsQuery initializes the apollo client and returns the data as props
 export const getServerSideProps = async () => {
   const apolloClient = initializeApollo()
 
