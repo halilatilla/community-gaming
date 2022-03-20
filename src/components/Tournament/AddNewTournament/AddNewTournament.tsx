@@ -22,22 +22,20 @@ const TournamentForm: FC = () => {
     <Formik
       initialValues={addNewTournamentInitialValues}
       validationSchema={addNewTournamentValidation}
-      validateOnChange={true}
+      enableReinitialize
       onSubmit={onSubmitHandler}
     >
-      {({ dirty, isValid }) => (
-        <Form className="mx-auto max-w-lg space-y-7">
-          <Input label="name" name="name" placeholder="Enter your name" isRequired />
-          <Input label="alias" name="alias" placeholder="Enter your alias name" isRequired />
-          <Input label="owner username" name="owner.username" placeholder="Enter your owner user name" isRequired />
-          <InputNumber label="prize" name="prize" placeholder="Enter your prize" isRequired />
-          <Datepicker label="deadline" name="deadline" placeholder="Enter your deadline" isRequired />
-          <FileUpload name="owner.avatar" label="owner avatar" isRequired />
-          <Input label="owner id" name="owner.id" disabled />
-          <FileUpload name="coverImage" label="cover image" isRequired />
-          <Button type="submit" label="Add New" className="!mt-12 block" disabled={!(isValid && dirty)} />
-        </Form>
-      )}
+      <Form className="mx-auto max-w-lg space-y-7">
+        <Input label="name" name="name" placeholder="Enter your name" isRequired />
+        <Input label="alias" name="alias" placeholder="Enter your alias name" isRequired />
+        <Input label="owner username" name="owner.username" placeholder="Enter your owner user name" isRequired />
+        <InputNumber label="prize" name="prize" placeholder="Enter your prize" isRequired />
+        <Datepicker label="deadline" name="deadline" placeholder="Enter your deadline" isRequired />
+        <FileUpload name="owner.avatar" label="owner avatar" isRequired />
+        <Input label="owner id" name="owner.id" disabled />
+        <FileUpload name="coverImage" label="cover image" isRequired />
+        <Button type="submit" label="Add New" className="!mt-12 block" />
+      </Form>
     </Formik>
   )
 }

@@ -12,7 +12,13 @@ const Input: FC<IInput> = ({ label, type = 'text', name, isRequired, ...rest }) 
   return (
     <label className="block">
       {label && <Label label={label} isRequired={isRequired} />}
-      <input type={type} className={classnames(styles.input)} autoComplete="off" {...rest} {...field} />
+      <input
+        type={type}
+        className={classnames(styles.input, { [styles.required]: meta?.error && meta?.touched })}
+        autoComplete="off"
+        {...rest}
+        {...field}
+      />
 
       <RequiredText meta={meta} />
     </label>

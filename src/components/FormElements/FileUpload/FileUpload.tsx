@@ -43,6 +43,7 @@ const FileUpload: FC<IFileUpload> = ({
         {...getRootProps({
           className: classnames(
             styles.file,
+            { [styles.required]: meta?.error && meta?.touched },
             'flex-center group',
             { 'border-red-500': isDragReject },
             { 'border-green-500': isDragAccept },
