@@ -12,6 +12,7 @@ export { default as Select } from './FormElements/Select/Select'
 export { default as Input } from './FormElements/Input/Input'
 export { default as InputNumber } from './FormElements/InputNumber/InputNumber'
 export { default as FileUpload } from './FormElements/FileUpload/FileUpload'
+export { default as Datepicker } from './FormElements/Datepicker/Datepicker'
 
 //tournament
 export { default as AddNewTournament } from './Tournament/AddNewTournament/AddNewTournament'
