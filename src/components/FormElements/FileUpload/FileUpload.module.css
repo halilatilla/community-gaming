@@ -1,3 +1,7 @@
 .file {
   @apply relative max-h-[300px] min-h-[100px] w-full flex-shrink-0 cursor-pointer overflow-hidden rounded-2xl border border-dashed hover:border-primary;
 }
+
+.required {
+  @apply border-danger;
+}

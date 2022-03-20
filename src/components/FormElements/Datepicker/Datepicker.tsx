@@ -25,7 +25,7 @@ const Datepicker: FC<IDatepicker> = ({ label, name, isRequired, placeholder, ...
         showYearDropdown
         autoComplete="off"
         dropdownMode="select"
-        className={classnames(styles.input)}
+        className={classnames(styles.input, { [styles.required]: meta?.error && meta?.touched })}
         selected={field.value}
         {...rest}
         {...field}

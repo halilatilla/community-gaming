@@ -1,3 +1,7 @@
 .input {
-  @apply mt-1 block h-14 w-full rounded-md border bg-darkGrey focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 disabled:pointer-events-none disabled:opacity-50;
+  @apply mt-1 block h-14 w-full rounded-md border bg-darkGrey hover:border-primary  hover:border-opacity-50 focus:border-indigo-300  focus:ring focus:ring-primary focus:ring-opacity-50 disabled:pointer-events-none disabled:opacity-50 disabled:hover:border-secondary;
+}
+
+.required {
+  @apply border-danger;
 }
