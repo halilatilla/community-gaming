@@ -5,7 +5,7 @@ export default interface IModal {
     onConfirm: () => void
   }
   cancel?: {
-    label: string
+    label?: string
     onClose: () => void
   }
   isVisible: boolean

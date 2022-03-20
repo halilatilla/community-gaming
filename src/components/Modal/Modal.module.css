@@ -1,0 +1,7 @@
+.modalHeader {
+  @apply text-center first-letter:uppercase;
+}
+
+.modalContent {
+  @apply max-w-full text-center text-xl font-bold capitalize;
+}
