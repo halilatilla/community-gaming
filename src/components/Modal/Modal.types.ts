@@ -1,5 +1,4 @@
 export default interface IModal {
-  className?: string
   confirm?: {
     label: string
     onConfirm: () => void
