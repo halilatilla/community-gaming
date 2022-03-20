@@ -1,13 +1,6 @@
 import React, { createContext, useContext, useState, FC, useEffect } from 'react'
 
-import { ITournament } from '@src/types'
-
-interface ITournamentsContext {
-  tournaments?: ITournament[]
-  setTournaments: (tournaments: ITournament[]) => void
-  handleUpVote: (id: string) => void
-  handleDownVote: (id: string) => void
-}
+import ITournamentsContext from './Tournaments.types'
 
 const initialTournamentsContext: ITournamentsContext = {
   tournaments: [],
@@ -21,6 +14,7 @@ const TournamentsContext = createContext<ITournamentsContext>(initialTournaments
 export const TournamentsProvider: FC = ({ children }) => {
   const [tournaments, setTournaments] = useState(initialTournamentsContext.tournaments)
 
+  //get initial data from localStorage and set it to state
   useEffect(() => {
     const localTournaments = JSON.parse(localStorage.getItem('tournaments') as string)
 
@@ -29,13 +23,13 @@ export const TournamentsProvider: FC = ({ children }) => {
     }
   }, [])
 
+  //watch for changes in tournaments and set localStorage
   useEffect(() => {
     localStorage.setItem('tournaments', JSON.stringify(tournaments))
   }, [tournaments])
 
   //up and add vote to tournament into the tournament list
   const handleUpVote = (id: string) => {
-    // @ts-ignore
     setTournaments((prevTournaments) => {
       const updatedTournaments = prevTournaments?.map((tournament) => {
         if (id === tournament.id) {
@@ -49,7 +43,6 @@ export const TournamentsProvider: FC = ({ children }) => {
 
   //down and add vote to tournament into the tournament list
   const handleDownVote = (id: string) => {
-    // @ts-ignore
     setTournaments((prevTournaments) => {
       const updatedTournaments = prevTournaments?.map((tournament) => {
         if (id === tournament.id) {
