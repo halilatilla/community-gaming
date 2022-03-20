@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 import { toast } from 'react-toastify'
 
 import { useTournamentsContext } from '@src/store'
-import { Input, InputNumber, FileUpload, Button } from '@src/components'
+import { Input, InputNumber, FileUpload, Button, Datepicker } from '@src/components'
 import { addNewTournamentInitialValues, addNewTournamentValidation } from '@src/config/form'
 
 const TournamentForm: FC = () => {
@@ -31,7 +31,7 @@ const TournamentForm: FC = () => {
           <Input label="alias" name="alias" placeholder="Enter your alias name" isRequired />
           <Input label="owner username" name="owner.username" placeholder="Enter your owner user name" isRequired />
           <InputNumber label="prize" name="prize" placeholder="Enter your prize" isRequired />
-          <Input label="deadline" name="deadline" placeholder="Enter your deadline" isRequired type="date" />
+          <Datepicker label="deadline" name="deadline" placeholder="Enter your deadline" isRequired />
           <FileUpload name="owner.avatar" label="owner avatar" isRequired />
           <Input label="owner id" name="owner.id" disabled />
           <FileUpload name="coverImage" label="cover image" isRequired />
