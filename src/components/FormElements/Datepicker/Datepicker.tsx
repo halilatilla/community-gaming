@@ -11,7 +11,6 @@ import styles from '../InputCommon.module.css'
 
 const Datepicker: FC<IDatepicker> = ({ label, name, isRequired, placeholder, ...rest }) => {
   const [field, meta, { setValue }] = useField(name)
-  console.log(field?.value)
 
   return (
     <label className="relative block">
