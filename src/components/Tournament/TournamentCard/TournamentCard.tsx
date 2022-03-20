@@ -2,11 +2,11 @@ import { FC, useState } from 'react'
 import Image from 'next/image'
 import { HiTrash } from 'react-icons/hi'
 import { toast } from 'react-toastify'
-import { format } from 'date-fns'
 import classnames from 'classnames'
 
 import { BLUR_DATA_URL } from '@src/config/constants'
 import { useTournamentsContext } from '@src/store'
+import { getFormattedDeadline } from '@src/lib'
 import { Button, Modal, Indicator } from '@src/components'
 
 import UpdateTournament from '../UpdateTournament/UpdateTournament'
@@ -19,9 +19,7 @@ const TournamentCard: FC<ITournamentCard> = ({ tournament }) => {
   const { upVote, downVote, removeTournament } = useTournamentsContext()
 
   const handleRemoveConfirm = () => {
-    //find tournament into tournaments array and remove it
     removeTournament(tournament.id)
-
     setIsRemoveModalVisible(false)
     toast.warning(`Tournament deleted successfully`)
   }
@@ -43,7 +41,11 @@ const TournamentCard: FC<ITournamentCard> = ({ tournament }) => {
         content={tournament.name}
         header="are you sure about to delete this tournament?"
       />
-      <Modal isVisible={isUpdateModalVisible} header={`update ${tournament.name}`}>
+      <Modal
+        isVisible={isUpdateModalVisible}
+        header={`update: ${tournament.name}`}
+        cancel={{ onClose: handleUpdateClose }}
+      >
         <UpdateTournament tournament={tournament} onCancel={handleUpdateClose} />
       </Modal>
       <div className={classnames(styles.tournamentCard, 'group')}>
@@ -73,7 +75,7 @@ const TournamentCard: FC<ITournamentCard> = ({ tournament }) => {
           <div className={styles.infoGroup}>
             <p className={styles.name}>{tournament.name}</p>
             <p className={styles.name}>owner: {tournament.owner.username}</p>
-            <p>{format(new Date(tournament.deadline), 'MM/dd/yyyy KK:mm')}</p>
+            <p>{getFormattedDeadline(tournament?.deadline)}</p>
           </div>
           <div className="flex justify-between">
             <div className="space-x-2">
