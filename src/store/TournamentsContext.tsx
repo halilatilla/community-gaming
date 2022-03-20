@@ -8,6 +8,7 @@ const initialTournamentsContext: ITournamentsContext = {
   upVote: () => {},
   downVote: () => {},
   removeTournament: () => {},
+  updateTournament: () => {},
 }
 
 const TournamentsContext = createContext<ITournamentsContext>(initialTournamentsContext)
@@ -62,8 +63,25 @@ export const TournamentsProvider: FC = ({ children }) => {
     })
   }
 
+  const updateTournament = (tournament: any) => {
+    setTournaments((prevTournaments) => {
+      const updatedTournaments = prevTournaments?.map((t) => {
+        if (t.id === tournament.id) {
+          return {
+            ...t,
+            ...tournament,
+          }
+        }
+        return t
+      })
+      return updatedTournaments
+    })
+  }
+
   return (
-    <TournamentsContext.Provider value={{ tournaments, setTournaments, upVote, downVote, removeTournament }}>
+    <TournamentsContext.Provider
+      value={{ tournaments, setTournaments, upVote, downVote, removeTournament, updateTournament }}
+    >
       {children}
     </TournamentsContext.Provider>
   )

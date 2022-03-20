@@ -6,4 +6,5 @@ export default interface ITournamentsContext {
   upVote: (id: string) => void
   downVote: (id: string) => void
   removeTournament: (id: string) => void
+  updateTournament: (tournaments: ITournament) => void
 }

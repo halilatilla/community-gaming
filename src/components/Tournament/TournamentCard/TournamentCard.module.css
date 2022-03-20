@@ -1,9 +1,9 @@
 .tournamentCard {
-  @apply mx-auto flex h-[440px] max-w-xs flex-col overflow-hidden rounded-xl border bg-darkGrey md:max-w-sm xl:max-w-none;
+  @apply mx-auto flex h-[480px] max-w-xs flex-col overflow-hidden rounded-xl border bg-darkGrey md:max-w-sm xl:max-w-none;
 }
 
 .imageWrapper {
-  @apply relative h-[170px] w-full shrink-0;
+  @apply relative h-[240px] w-full shrink-0;
 }
 
 .deleteButton {

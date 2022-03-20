@@ -4,23 +4,15 @@ import { toast } from 'react-toastify'
 
 import { useTournamentsContext } from '@src/store'
 import { Input, FileUpload, Button, Datepicker } from '@src/components'
+
 import { updateTournamentInitialValues, updateTournamentValidation } from '@src/config/form'
 import IUpdateTournament from './UpdateTournament.types'
 
-const UpdateTournament: FC<IUpdateTournament> = ({ tournament: initialValues, onCancel }) => {
-  const { tournaments, setTournaments } = useTournamentsContext()
+const UpdateTournament: FC<IUpdateTournament> = ({ tournament, onCancel }) => {
+  const { updateTournament } = useTournamentsContext()
 
   const onSubmitHandler = (values: any) => {
-    const newTournaments = tournaments?.map((t) => {
-      if (t.id === values.id) {
-        return {
-          ...t,
-          ...values,
-        }
-      }
-      return t
-    })
-    setTournaments(newTournaments!)
+    updateTournament(values)
     toast.success('Tournament updated successfully')
     onCancel()
   }
@@ -29,8 +21,8 @@ const UpdateTournament: FC<IUpdateTournament> = ({ tournament: initialValues, on
     <Formik
       initialValues={{
         ...updateTournamentInitialValues,
-        ...initialValues,
-        deadline: new Date(initialValues?.deadline),
+        ...tournament,
+        deadline: new Date(tournament?.deadline),
       }}
       validationSchema={updateTournamentValidation}
       validateOnChange={true}
