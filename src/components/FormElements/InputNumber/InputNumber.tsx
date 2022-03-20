@@ -6,7 +6,7 @@ import NumberFormat from 'react-number-format'
 import RequiredText from '../RequiredText/RequiredText'
 import Label from '../Label/Label'
 import IInputNumber from './InputNumber.types'
-import styles from './InputNumber.module.css'
+import styles from '../InputCommon.module.css'
 
 const InputNumber: FC<IInputNumber> = ({ label, name, isRequired, ...rest }) => {
   const [field, meta] = useField(name)
