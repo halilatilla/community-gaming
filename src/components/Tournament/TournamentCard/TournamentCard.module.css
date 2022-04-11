@@ -1,5 +1,5 @@
 .tournamentCard {
-  @apply mx-auto flex h-[480px] max-w-xs flex-col overflow-hidden rounded-xl border bg-darkGrey md:max-w-sm xl:max-w-none;
+  @apply mx-auto flex h-[480px] max-w-xs flex-col overflow-hidden rounded-xl border bg-darkGrey hover:border-primary md:max-w-sm xl:max-w-none;
 }
 
 .imageWrapper {
